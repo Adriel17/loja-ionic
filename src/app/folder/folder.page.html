@@ -8,14 +8,13 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list>
+    <ion-item *ngFor="let item of listaProdutos">
+      <ion-avatar slot="start">
+        <img src="{{item.imagem}}">
+      </ion-avatar>
+        <ion-label>{{item.nome}}</ion-label>
+        <ion-label slot="end">R$ {{item.preco}}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
