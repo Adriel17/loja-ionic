@@ -1,0 +1,7 @@
+{
+  "name": "loja virtual",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
