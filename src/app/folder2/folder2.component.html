@@ -1,3 +1,31 @@
-<p>
-  folder2 works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Carrinho</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let i of itemCarrinho">
+      <ion-img [src]="i.produto.imagem"></ion-img>
+      <ion-label>
+        <h3>{{i.produto.nome}}</h3>
+        <h3>{{i.produto.preco}}</h3>
+        <h3>{{i.quantidade}}</h3>
+      </ion-label>
+      <ion-label>
+        <ion-button (click)="remover(i.produto.id)" expand="block" fill="clear" shape="round">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+       
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Total: {{total}}</ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -3,19 +3,18 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-title>Lista de Produtos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-list id="aaa">
-    <ion-item *ngFor="let item of listaProdutos" (click)="redirectToCart()">
+    <ion-item *ngFor="let item of listaProdutos" [routerLink]="['/detalhes',item.id]">
       <ion-avatar slot="start">
         <img src="{{item.imagem}}">
       </ion-avatar>
       <ion-label>{{item.nome}}</ion-label>
       <ion-label slot="end">R$ {{item.preco}}</ion-label>
-      <ion-button [routerLink]="['/detalhes']">Go to detail</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
