@@ -9,18 +9,18 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let i of itemCarrinho">
-      <ion-img [src]="i.produto.imagem"></ion-img>
-      <ion-label>
-        <h3>{{i.produto.nome}}</h3>
-        <h3>{{i.produto.preco}}</h3>
-        <h3>{{i.quantidade}}</h3>
-      </ion-label>
-      <ion-label>
-        <ion-button (click)="remover(i.produto.id)" expand="block" fill="clear" shape="round">
+      <ion-img class="imagem" [src]="i.produto.imagem"></ion-img>
+      <ion-item padding>
+        <ion-text>
+          <p class="nome">{{i.produto.nome}}</p>
+          <p>{{i.produto.descricao}}</p>
+          <p>R$ {{i.produto.preco}}</p>
+          <p>X {{i.quantidade}}</p>
+        </ion-text>
+      </ion-item> 
+        <ion-button (click)="remover(i.produto.id)" fill="clear" shape="round">
           <ion-icon name="trash-outline"></ion-icon>
         </ion-button>
-       
-      </ion-label>
     </ion-item>
   </ion-list>
 </ion-content>

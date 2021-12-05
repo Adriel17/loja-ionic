@@ -31,6 +31,7 @@ export class CarrinhoService {
     } else {
       console.log("entrou")
       this.item.push(itemComprando);
+
     }
     console.log(this.item);
   }

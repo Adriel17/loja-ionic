@@ -18,10 +18,26 @@ export class ItemdetalhesComponent implements OnInit {
   constructor(private route: ActivatedRoute, private LojaService: LojaServiceService, private Carrinho: CarrinhoService) {
     this.idItem = Number(this.route.snapshot.paramMap.get('id'));
     this.item = LojaService.obterProdutosId(this.idItem);
+    this.quantidade = 0;
   }
 
   ngOnInit() {
 
+  }
+
+  incre(){
+    if(this.quantidade < this.item.estoque){
+      this.quantidade++;
+      console.log(this.quantidade)
+    }
+    
+  }
+
+  decre(){
+    if(this.quantidade >= 1){
+      this.quantidade--;
+      console.log(this.quantidade)
+    }
   }
 
   additem() {
@@ -30,7 +46,10 @@ export class ItemdetalhesComponent implements OnInit {
       quantidade: this.quantidade
     }
     console.log(this.item)
+    this.item.estoque = this.item.estoque - this.quantidade
     this.Carrinho.adicionarItem(temp)
+    this.quantidade = 0
+    alert("Produto adicionado ao carrinho")
   }
 
 }
