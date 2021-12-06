@@ -9,38 +9,44 @@
 <ion-content>
   <ion-card *ngIf="item.promocao === true" color="warning">
     <ion-text>
-      <h1 style="text-align: center;">Item em promoção</h1>
+      <h1 style="text-align: center;">Item em promoção!</h1>
     </ion-text>
   </ion-card>
-  <ion-item>
-    <ion-label>
-      <img offset="3" class="imagem" src="{{item.imagem}}">
-    </ion-label>
-  </ion-item>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="12">       
-        <ion-text color="primary">
-          <h1>{{item.nome}}</h1>
-          <h4>{{item.descricao}}</h4>
-          <h2>R$ {{item.preco}}</h2>
-        </ion-text>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="4" offset="3">
-        <ion-label>Quantidade:</ion-label>
+  <ion-card class="ion-padding">
+    <ion-card-header>
+      <ion-card-subtitle color="primary">{{item.nome}}</ion-card-subtitle>
+    </ion-card-header>
+    <img offset="3" class="imagem" src="{{item.imagem}}">
+    <ion-card-content>
+      <ion-grid fixed>
         <ion-row>
-        <ion-button (click)="decre()">-</ion-button>
-        <ion-input disabled type="number" #qProduto name="quantidade" required="true" [(ngModel)]="quantidade" ></ion-input>
-        <ion-button (click)="incre()">+</ion-button>
-      </ion-row>
-      </ion-col>
-      <ion-col size="4" offset="3">
-        <ion-button [disabled]="quantidade == 0" (click)="additem()" expand="block"  shape="round" color="primary" >
-          Comprar
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+          <ion-col size="12">
+            <ion-text color="success">
+              <h2>R$ {{item.preco}},00 à vista no PIX</h2>
+            </ion-text>
+            <ion-text color="white">
+              <h4>{{item.descricao}}</h4>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row style="align-items: center;">
+          <ion-col size="6">
+            <ion-row>
+              <ion-chip color="primary" mode="ios" outline="true">
+                <ion-button (click)="decre()">-</ion-button>
+                <ion-input disabled type="number" #qProduto name="quantidade" required="true" [(ngModel)]="quantidade">
+                </ion-input>
+                <ion-button (click)="incre()">+</ion-button>
+              </ion-chip>
+            </ion-row>
+          </ion-col>
+          <ion-col size="4" offset="2">
+            <ion-button [disabled]="quantidade == 0" (click)="additem()" expand="block" shape="round" color="primary">
+              Comprar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

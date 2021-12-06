@@ -4,7 +4,6 @@ import { ItemPedido } from '../classes/itemPedido';
 import { Produto } from '../classes/produto';
 import { CarrinhoService } from '../service/carrinho-service.service';
 import { LojaServiceService } from '../service/loja-service.service';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-itemdetalhes',
