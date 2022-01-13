@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "loja virtual",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

@@ -18,7 +18,13 @@ const routes: Routes = [
   {
     path: 'folder/carrinho',
     loadChildren: () => import('./folder2/folder2.module').then(m => m.Folder2Module)
+  },
+  {
+    path: 'folder/promocoes',
+    loadChildren: () => import('./promocoes/promocoes.module').then(m => m.PromocoesModule)
+
   }
+
 ];
 
 @NgModule({
