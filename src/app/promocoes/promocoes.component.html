@@ -7,6 +7,15 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-
-  
+  <ion-list id="aaa">
+    <ion-item
+      *ngFor="let item of promoProdutos"
+      [routerLink]="['/detalhes', item.id]">
+      <ion-avatar slot="start">
+        <img src="{{ item.imagem }}" />
+      </ion-avatar>
+      <ion-label>{{ item.nome }}</ion-label>
+      <ion-label slot="end">R$ {{ item.preco }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

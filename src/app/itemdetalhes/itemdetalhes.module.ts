@@ -4,6 +4,7 @@ import { ItemdetalhesComponent } from './itemdetalhes.component';
 import { ItemDetalhesRouting } from './itemdetalhes-routing.module';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
+import { Toast } from '@awesome-cordova-plugins/toast/ngx';
 
 @NgModule({
   declarations: [ItemdetalhesComponent],
@@ -12,6 +13,7 @@ import { FormsModule } from '@angular/forms';
     IonicModule,
     ItemDetalhesRouting,
     FormsModule  
-  ]
+  ],
+  providers: [Toast],
 })
 export class ItemdetalhesModule { }

@@ -20,6 +20,10 @@ export class CarrinhoService {
     
   }
 
+  removerTodosItens() {
+    this.item = [];
+  }
+
   adicionarItem(itemComprando: ItemPedido) {
     if (this.existe(itemComprando.produto.id)) {
       console.log("entrou em cima")

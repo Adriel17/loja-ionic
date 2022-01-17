@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Loja',
+    redirectTo: 'folder/welcome',
     pathMatch: 'full'
   },
   {
@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'folder/promocoes',
     loadChildren: () => import('./promocoes/promocoes.module').then(m => m.PromocoesModule)
 
+  },
+  {
+    path: 'folder/welcome',
+    loadChildren: () => import('./welcome-page/welcome-page.module').then( m => m.WelcomePageModule)
   }
 
 ];

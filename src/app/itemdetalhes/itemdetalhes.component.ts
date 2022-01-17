@@ -4,7 +4,7 @@ import { ItemPedido } from '../classes/itemPedido';
 import { Produto } from '../classes/produto';
 import { CarrinhoService } from '../service/carrinho-service.service';
 import { LojaServiceService } from '../service/loja-service.service';
-
+import { Toast } from '@awesome-cordova-plugins/toast/ngx';
 @Component({
   selector: 'app-itemdetalhes',
   templateUrl: './itemdetalhes.component.html',
@@ -14,7 +14,7 @@ export class ItemdetalhesComponent implements OnInit {
   public item: Produto
   idItem: number
   quantidade: number
-  constructor(private route: ActivatedRoute, private LojaService: LojaServiceService, private Carrinho: CarrinhoService) {
+  constructor(private route: ActivatedRoute, private LojaService: LojaServiceService, private Carrinho: CarrinhoService, private toast: Toast) {
     this.idItem = Number(this.route.snapshot.paramMap.get('id'));
     this.item = LojaService.obterProdutosId(this.idItem);
     this.quantidade = 0;
@@ -48,7 +48,11 @@ export class ItemdetalhesComponent implements OnInit {
     this.item.estoque = this.item.estoque - this.quantidade
     this.Carrinho.adicionarItem(temp)
     this.quantidade = 0
-    alert("Produto adicionado ao carrinho")
+    this.toast.show('Produto adicionado ao carrinho', '5000', 'top').subscribe(
+      toast => {
+        console.log(toast);
+      }
+    );
   }
 
 }

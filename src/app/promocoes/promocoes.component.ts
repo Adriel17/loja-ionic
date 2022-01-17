@@ -1,4 +1,7 @@
+import { ActivatedRoute } from '@angular/router';
+import { LojaServiceService } from './../service/loja-service.service';
 import { Component, OnInit } from '@angular/core';
+import { Produto } from '../classes/produto';
 
 @Component({
   selector: 'app-promocoes',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./promocoes.component.scss'],
 })
 export class PromocoesComponent implements OnInit {
-  
+  public promoProdutos: Produto[] = [];
+  public folder: string;
 
-  constructor() { }
+  constructor(private lojaService: LojaServiceService,private activatedRoute: ActivatedRoute) {
+    this.promoProdutos = this.lojaService.obterPromoProdutos();
+   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+  }
 
 }

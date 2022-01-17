@@ -1,16 +1,17 @@
-import { PromocoesComponent } from './promocoes.component';
+import { WelcomePageComponent } from './welcome-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    component: PromocoesComponent,
+    component: WelcomePageComponent,
   },
+
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class PromocoesRoutingModule {}
+export class WelcomePageRoutingModule { }

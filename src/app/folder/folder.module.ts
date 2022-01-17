@@ -1,3 +1,4 @@
+import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +16,7 @@ import { FolderPage } from './folder.page';
     IonicModule,
     FolderPageRoutingModule
   ],
-  declarations: [FolderPage]
+  declarations: [FolderPage],
+  providers: [AndroidPermissions]
 })
 export class FolderPageModule {}
